@@ -1,0 +1,22 @@
+# ide и кеш
+.idea/
+__pycache__/
+.pytest_cache/
+tests/.pytest_cache
+
+# креды
+creds_test/*.json
+creds_prod/*.json
+
+# БД
+db/*.db
+db/*.db-wal
+db/*.db-shm
+db/*.sqlite
+db/*.sqlite-wal
+db/*.sqlite-shm
+db/*.pickle
+
+# Решения
+solutions/
+/db/archive/
