@@ -515,7 +515,7 @@ async def prc_problems_selected_callback(query: types.CallbackQuery, student: Us
                                    text=f"Выбрана задача {problem}.\nВыберите ответ — один из следующих вариантов:",
                                    reply_markup=student_keyboards.build_test_answers(problem))
         else:
-            print(type(problem))
+            print('type - ', type(problem))
             answer_recommendation = problem.validation_error or f'Теперь введите ответ{problem.ans_type.descr}'
             await bot.send_message(chat_id=query.message.chat.id,
                                    text=f"Выбрана задача {problem}.\n{answer_recommendation}",
