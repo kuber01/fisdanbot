@@ -200,18 +200,17 @@ class BotIg(aiogram.Bot):
     ) -> types.Message:
         for t in TIMEOUTS:
             try:
-                print('chat_id - ', chat_id)
-                print('text - ',text)
-                print('parse_mode - ',parse_mode)
-                print('disable_web - ',disable_web_page_preview)
+ #               print('chat_id - ', chat_id)
+#                print('text - ',text)
+#                print('parse_mode - ',parse_mode)
+#                print('disable_web - ',disable_web_page_preview)
 #                print('message_thread_id' , message_thread_id)
-                print('disable_notification',disable_notification)
-                print('protect_content',protect_content)
-                print('reply_to_mess',reply_to_message_id)
-                print('allow_sending',allow_sending_without_reply)
-                print('reply_markup',reply_markup)
+#                print('disable_notification',disable_notification)
+#                print('protect_content',protect_content)
+#                print('reply_to_mess',reply_to_message_id)
+#                print('allow_sending',allow_sending_without_reply)
+ #               print('reply_markup',reply_markup)
                 return await super().send_message(chat_id=chat_id, text=text, parse_mode=parse_mode, entities=entities, disable_web_page_preview=disable_web_page_preview, disable_notification=disable_notification, protect_content=protect_content, reply_to_message_id=reply_to_message_id, allow_sending_without_reply=allow_sending_without_reply, reply_markup=reply_markup)
-                print('FALKA')
             except asyncio.TimeoutError as e:
                 logger.error(':( TimeoutError in send_message...')
                 if t:
