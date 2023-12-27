@@ -16,7 +16,9 @@ class DB_LESSON(DB_ABC):
             conn.execute("""
                 delete from lessons
                 where (lesson, level) not in (select distinct lesson, level from problems)
+            """)
             
+            conn.execute("""
                 insert into lessons (lesson, level)
                 select distinct p.lesson, p.level
                 from problems p
