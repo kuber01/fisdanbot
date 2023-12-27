@@ -14,6 +14,9 @@ class DB_LESSON(DB_ABC):
         По записи на каждую возможную пару (lesson, level)"""
         with self.db.conn as conn:
             conn.execute("""
+                delete from lessons
+                where (lesson, level) not in (select distinct lesson, level from problems)
+            
                 insert into lessons (lesson, level)
                 select distinct p.lesson, p.level
                 from problems p
