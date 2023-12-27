@@ -12,12 +12,7 @@ class DB_LESSON(DB_ABC):
     def update(self):
         """Создать записи с уроками на основе списка задач.
         По записи на каждую возможную пару (lesson, level)"""
-        with self.db.conn as conn:
-            conn.execute("""
-                delete from lessons
-                where (lesson, level) not in (select distinct lesson, level from problems)
-            """)
-            
+        with self.db.conn as conn:          
             conn.execute("""
                 insert into lessons (lesson, level)
                 select distinct p.lesson, p.level
