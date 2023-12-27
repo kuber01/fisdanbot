@@ -10,6 +10,11 @@ from .db_abc import DB_ABC, sql
 # ██      ██   ██  ██████  ██████  ███████ ███████ ██      ██ ███████
 
 class DB_PROBLEM(DB_ABC):
+    def clear(self):
+        with self.db.conn as conn:
+            conn.execute("""
+            DELETE FROM problems""")
+            
     def insert(self, data: dict) -> int:
         """Записать в базу (или обновить) новую задачу.
         Уникальным ключом является тройка (level, lesson, prob, item)"""
