@@ -68,6 +68,7 @@ class FromGoogleSpreadsheet:
 
     @staticmethod
     def problems_to_db(problems: List[dict]) -> List[str]:
+        db.problem.clear()
         errors = []
         for problem in problems:
             if problem['level'] == problem['lesson'] == problem['lesson'] == problem['item'] == '':
