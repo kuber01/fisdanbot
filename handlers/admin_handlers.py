@@ -61,6 +61,10 @@ async def update_problems(message: types.Message):
     teacher = User.get_by_chat_id(message.chat.id)
     if not teacher or teacher.type != USER_TYPE.TEACHER:
         return
+
+    with db.conn:
+        db.conn.execute("DELETE FROM problems")
+        
     errors = FromGoogleSpreadsheet.update_problems()
     await bot.send_message(
         chat_id=message.chat.id,
